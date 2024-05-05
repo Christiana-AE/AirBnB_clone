@@ -5,6 +5,9 @@ Creating a file that contains the FileStorage class
 """
     
 from models.base_model import BaseModel
+import json
+
+classes = {"BaseModel" : BaseModel}
 
 class FileStorage:
     """serializes instances to JSON file and deserialises back to instances"""
