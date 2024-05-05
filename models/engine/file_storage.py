@@ -6,8 +6,9 @@ Creating a file that contains the FileStorage class
     
 from models.base_model import BaseModel
 import json
+from models.user import User
 
-classes = {"BaseModel" : BaseModel}
+classes = {"BaseModel" : BaseModel, "User": User}
 
 class FileStorage:
     """serializes instances to JSON file and deserialises back to instances"""
@@ -51,3 +52,13 @@ class FileStorage:
         except:
             pass
         
+    def delete(self, obj=None):
+        """delete obj from __objects if it is inside"""
+        if obj is not None:
+            key = obj.__class__.__name__ + '.' + obj.id
+            if key in self.__objects:
+                del self.__objects[key]
+
+    def close(self):
+        """call reload() method for deserializing the JSON file to objects"""
+        self.reload()
