@@ -8,8 +8,14 @@ import models
 from models.base_model import BaseModel
 from models.user import User
 import shlex # to split line along spaces except in double  quotes
+from models.place import Place
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
 
-classes = {"BaseModel": BaseModel, "User" : User}
+
+classes = {"BaseModel" : BaseModel, "User": User, "Place" : Place, "State": State, "City" : City, "Amenity": Amenity, "Review": Review }
 
 class HBNBCommand(cmd.Cmd):
     """HBNH console"""
