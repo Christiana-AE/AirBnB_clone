@@ -10,8 +10,9 @@ import uuid
 
 time = "%Y-%m-%dT%H:%M:%S.%f"
 
+
 class BaseModel:
-    """The base model class for the project defining all common attributes and methods"""
+    """The base model class for the project"""
     def __init__(self, *args, **kwargs):
         """Constructor to initialise the base model"""
         if kwargs:
@@ -42,7 +43,6 @@ class BaseModel:
     def save(self):
         """updates the public instance attribute updated_at with the current datetime"""
         self.updated_at = datetime.now()
-        
 
 
     def to_dict(self):
