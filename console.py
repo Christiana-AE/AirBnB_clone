@@ -7,7 +7,7 @@ from datetime import datetime
 import models
 from models.base_model import BaseModel
 from models.user import User
-import shlex # to split line along spaces except in double  quotes
+import shlex
 from models.place import Place
 from models.state import State
 from models.city import City
@@ -15,12 +15,14 @@ from models.amenity import Amenity
 from models.review import Review
 
 
-classes = {"BaseModel" : BaseModel, "User": User, "Place" : Place, "State": State, "City" : City, "Amenity": Amenity, "Review": Review }
+classes = {"BaseModel": BaseModel, "User": User, "Place": Place, "State": State, 
+           "City": City, "Amenity": Amenity, "Review": Review}
+
 
 class HBNBCommand(cmd.Cmd):
     """HBNH console"""
     prompt = '(hbnb)'
-    
+
     def do_EOF(self, arg):
         """command to exit the console"""
         return True
@@ -32,7 +34,6 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self):
         """Quit command to exit the program"""
         return True
-    
     
     def do_create(self, arg):
         """Creates a new instance of a class"""
@@ -154,13 +155,14 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     try:
                         value = int(value)
-                    except:
+                    except Exception:
                         try:
                             value = float(value)
                         except:
                             continue
                 new_dict[key] = value
         return new_dict
+
     
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
