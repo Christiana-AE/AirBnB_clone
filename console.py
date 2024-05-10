@@ -35,7 +35,7 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self):
         """Quit command to exit the program"""
         return True
-    
+
     def do_create(self, arg):
         """Creates a new instance of a class"""
         args = arg.split()
@@ -50,7 +50,7 @@ class HBNBCommand(cmd.Cmd):
             return False
         print(instance.id)
         instance.save()
-        
+
     def do_show(self, arg):
         """Prints an instance as a string based on the class and id"""
         args = shlex.split(arg)
@@ -68,7 +68,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** instance id missing **")
         else:
             print("** class doesn't exist **")
-            
+
     def do_destroy(self, arg):
         """Deletes an instance based on the class and id"""
         args = shlex.split(arg)
@@ -86,7 +86,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** instance id missing **")
         else:
             print("** class doesn't exist **")
-            
+
     def do_all(self, arg):
         """Prints string representations of instances"""
         args = shlex.split(arg)
@@ -141,7 +141,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** instance id missing **")
         else:
             print("** class doesn't exist **")
-            
+
     def _key_value_parser(self, args):
         """creates a dictionary from a list of strings"""
         new_dict = {}
@@ -163,6 +163,6 @@ class HBNBCommand(cmd.Cmd):
                 new_dict[key] = value
         return new_dict
 
-    
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

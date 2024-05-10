@@ -3,7 +3,7 @@
 """
 Creating a file that contains the FileStorage class
 """
-    
+
 from models.base_model import BaseModel
 import json
 from models.user import User
@@ -13,7 +13,10 @@ from models.city import City
 from models.amenity import Amenity
 from models.review import Review
 
-classes = {"BaseModel" : BaseModel, "User": User, "Place" : Place, "State": State, "City" : City, "Amenity": Amenity, "Review": Review }
+classes = {"BaseModel": BaseModel, "User": User, "Place": Place,
+           "State": State, "City": City, "Amenity": Amenity,
+           "Review": Review}
+
 
 class FileStorage:
     """serializes instances to JSON file and deserialises back to instances"""
@@ -21,8 +24,7 @@ class FileStorage:
     __file_path = "file.json"
     # dictionary is emplty but will store all objects by class name id
     __objects = {}
-    
-    
+
     def all(self, cls=None):
         """returns the dictionary __objects"""
         if cls is not None:
@@ -54,9 +56,9 @@ class FileStorage:
                 jo = json.load(f)
             for key in jo:
                 self.__objects[key] = classes[jo[key]["__class__"]](**jo[key])
-        except:
+        except Exception:
             pass
-        
+
     def delete(self, obj=None):
         """delete obj from __objects if it is inside"""
         if obj is not None:
