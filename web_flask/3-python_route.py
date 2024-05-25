@@ -30,8 +30,8 @@ def cisfun(text):
 @app.route('python/', strict_slashes=False)
 @app.route('python/<text>', strict_slashes=False)
 def pythoniscool(text='is cool'):
-    """display “Python ”, then the text variable value"""
-    return 'Python ' + text.replace('_', ' ')
+    """display “Python ”, followed by the text variable value"""
+    return "Python " + text.replace("_", " ")
 
 
 if __name__ == "__main__":
