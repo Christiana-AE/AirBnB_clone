@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 """
 route for handling User objects and operations
@@ -103,4 +102,3 @@ def user_delete_by_id(user_id):
     storage.save()
 
     return jsonify({})
-
